@@ -11,4 +11,9 @@ def test_requirement_01(name):
 @pytest.mark.parametrize('name', [None])
 def test_requirement_02(name):
     """ Test greeting result """
-    assert greet(name) == f'Hello, my friend.'
+    assert greet(name) == 'Hello, my friend.'
+
+
+@pytest.mark.parametrize('name', ['GORDON', 'LOIS LANE'])
+def test_requirement_03(name):
+    assert greet(name) == f'HELLO {name}!'
