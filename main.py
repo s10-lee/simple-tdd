@@ -1,6 +1,9 @@
 
-def greet(name: [str, None] = None) -> str:
+def greet(name: [str, list, None] = None) -> str:
     """ Compose greeting string """
+    if isinstance(name, list):
+        name = ' and '.join(name)
+
     if not name:
         name = 'my friend'
 
