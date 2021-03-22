@@ -2,7 +2,7 @@
 def greet(name: [str, list, None] = None) -> str:
     """ Compose greeting string """
     if isinstance(name, list):
-        name = ' and '.join(name)
+        name = f'{", ".join(name[:-1])} and {name[-1]}'
 
     if not name:
         name = 'my friend'
