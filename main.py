@@ -1,8 +1,23 @@
 
 def greet(name: [str, list, None] = None) -> str:
     """ Compose greeting string """
+
+    shouting = ''
+
     if isinstance(name, list):
-        name = f'{", ".join(name[:-1])} and {name[-1]}'
+        names = []
+
+        for n in name:
+            if n.isupper():
+                shouting = f' AND HELLO {n}!'
+            else:
+                names.append(n)
+
+        if len(names) > 1:
+            name = f'{", ".join(names[:-1])} and {names[-1]}'
+        else:
+            name = names[0]
+
 
     if not name:
         name = 'my friend'
@@ -10,4 +25,4 @@ def greet(name: [str, list, None] = None) -> str:
     if name.isupper():
         return f'HELLO {name}!'
 
-    return f'Hello, {name}.'
+    return f'Hello, {name}.{shouting}'
