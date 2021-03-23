@@ -48,7 +48,7 @@ def test_requirement_07(name, expected):
 
 
 @pytest.mark.parametrize("name,expected", [
-    (['Kurt', "\"Logan, Charles\""], 'Hello, Kurt, Logan and Charles.'),
+    (['Kurt', "\"Logan, Charles\""], 'Hello, Kurt and Logan, Charles.'),
     (["\"Jean\"", 'Hank'], 'Hello, Jean and Hank.')
 ])
 def test_requirement_08(name, expected):

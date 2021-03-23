@@ -10,6 +10,8 @@ def greet(name: [str, list, None] = None) -> str:
         for person_name in name:
             if person_name.isupper():
                 shouting = f' AND HELLO {person_name}!'
+            elif person_name.startswith('"') and person_name.endswith('"'):
+                names.append(person_name)
             else:
                 names.extend(person_name.split(', '))
 
