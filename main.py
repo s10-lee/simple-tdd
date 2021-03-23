@@ -21,6 +21,8 @@ def greet(name: [str, list, None] = None) -> str:
 
     if not name:
         name = 'my friend'
+    else:
+        name = name.replace('"', '')
 
     if name.isupper():
         return f'HELLO {name}!'

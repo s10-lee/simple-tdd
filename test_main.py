@@ -45,3 +45,11 @@ def test_requirement_06(name, expected):
 ])
 def test_requirement_07(name, expected):
     assert greet(name) == expected
+
+
+@pytest.mark.parametrize("name,expected", [
+    (['Kurt', "\"Logan, Charles\""], 'Hello, Kurt, Logan and Charles.'),
+    (["\"Jean\"", 'Hank'], 'Hello, Jean and Hank.')
+])
+def test_requirement_08(name, expected):
+    assert greet(name) == expected
