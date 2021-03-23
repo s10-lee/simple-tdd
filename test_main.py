@@ -22,3 +22,26 @@ def test_requirement_03(name):
 @pytest.mark.parametrize('name', [['Bruce Wayne', 'Selina Kyle'], ['Clark', 'Lois']])
 def test_requirement_04(name):
     assert greet(name) == f'Hello, {name[0]} and {name[1]}.'
+
+
+@pytest.mark.parametrize('name,expected', [
+    (['Jean Grey', 'Kurt', 'Hank', 'Charles'], 'Hello, Jean Grey, Kurt, Hank and Charles.'),
+    (['Scott Summers', 'Wade Wilson', 'Logan'], 'Hello, Scott Summers, Wade Wilson and Logan.')
+])
+def test_requirement_05(name, expected):
+    assert greet(name) == expected
+
+
+@pytest.mark.parametrize("name,expected", [
+    (['Kurt', 'HANK', 'Jean', 'Charles'], 'Hello, Kurt, Jean and Charles. AND HELLO HANK!'),
+    (['Scott', 'LOGAN'], 'Hello, Scott. AND HELLO LOGAN!')
+])
+def test_requirement_06(name, expected):
+    assert greet(name) == expected
+
+
+@pytest.mark.parametrize("name,expected", [
+    (['Scott', 'Jean', 'Kurt, Charles'], 'Hello, Scott, Jean, Kurt and Charles.'),
+])
+def test_requirement_07(name, expected):
+    assert greet(name) == expected
