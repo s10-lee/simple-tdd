@@ -7,11 +7,11 @@ def greet(name: [str, list, None] = None) -> str:
     if isinstance(name, list):
         names = []
 
-        for n in name:
-            if n.isupper():
-                shouting = f' AND HELLO {n}!'
+        for person_name in name:
+            if person_name.isupper():
+                shouting = f' AND HELLO {person_name}!'
             else:
-                names.extend(n.split(', '))
+                names.extend(person_name.split(', '))
 
         if len(names) > 1:
             name = f'{", ".join(names[:-1])} and {names[-1]}'
